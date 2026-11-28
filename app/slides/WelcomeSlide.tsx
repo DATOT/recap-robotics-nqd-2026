@@ -1,26 +1,68 @@
-import { Slide } from "@revealjs/react";
-import { PhotoPlaceholder } from "./SlideElements";
+"use client";
+import { Slide, Fragment } from "@revealjs/react";
+import localFont from "next/font/local";
+import { Kalam } from "next/font/google";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
+const flipside = localFont({
+  src: "../fonts/flipside.ttf",
+});
+const kalam = Kalam({ weight: "400" });
 const WelcomeSlide = () => (
-  <Slide className="slide-section">
-    <div className="robotics-slide welcome-slide">
-      <div className="welcome-orbit orbit-one" aria-hidden="true" />
-      <div className="welcome-orbit orbit-two" aria-hidden="true" />
-      <div className="welcome-topline"><span><span className="welcome-mark">R</span> ROBOTICS CLUB · HKI</span><span>RECAP / 2026</span></div>
-      <div className="welcome-layout">
-        <div className="welcome-copy">
-          <p className="welcome-kicker"><span /> A YEAR OF IDEAS IN MOTION</p>
-          <h1>RECAP<br /><span>KHÓA 18</span></h1>
-          <p className="welcome-subtitle">We dreamed it. We built it.<br />We did it together.</p>
-          <div className="welcome-hello">Xin chào <span aria-hidden="true">✳</span></div>
-        </div>
-        <div className="welcome-photo-wrap">
-          <PhotoPlaceholder label="Robotics club team hero photo" size="photo-hero" inverse />
-          <span className="photo-float-label">OUR CREW<br />2026</span>
-        </div>
-      </div>
-      <div className="welcome-bottom"><span>SCROLL THROUGH OUR STORY</span><span className="welcome-down">↓</span><span>01 — 06</span></div>
-    </div>
+  <Slide
+    backgroundColor="#406d50"
+    color="#ffffff"
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      width: "100%",
+      textAlign: "center",
+    }}
+  >
+    <Fragment
+      animation="fade-out"
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      Kéo xuống
+      <MdKeyboardArrowDown />
+    </Fragment>
+    <Fragment animation="fade-in-then-semi-out">
+      <h1
+        className={kalam.className}
+        style={{
+          fontFamily: kalam.style.fontFamily,
+          fontSize: "11.5rem",
+          fontStyle: "black",
+        }}
+      >
+        RECAP
+      </h1>
+    </Fragment>
+
+    <Fragment animation="fade-in-then-semi-out">
+      <h1
+        className={kalam.className}
+        style={{
+          fontFamily: kalam.style.fontFamily,
+          fontSize: "6.5rem",
+          fontStyle: "black",
+        }}
+      >
+        HKI KHÓA 18
+      </h1>
+    </Fragment>
+
+    <Fragment animation="fade-in-then-semi-out">
+      <h2
+        className={flipside.className}
+        style={{ fontFamily: flipside.style.fontFamily, fontSize: "3.5rem" }}
+      >
+        NQD ROBOTICS CLUB
+      </h2>
+    </Fragment>
   </Slide>
 );
 
